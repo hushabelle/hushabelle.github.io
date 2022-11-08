@@ -1,4 +1,3 @@
-import './styles.css';
 
 const observer = new IntersectionObserver((entries)=>{
   entries.forEach((entry)=>{
