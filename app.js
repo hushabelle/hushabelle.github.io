@@ -23,52 +23,13 @@ scene1.to("#h1-2", { y: 2.6 * speed, x: -0.6 * speed, ease: "power1j.in" }, 0);
 scene1.to("#frontbuilding", { y: 3.0 * speed, x: 0 * speed }, 0.1);
 scene1.to("#h1-4", { y: 3 * speed, x: 1 * speed }, 0.1);
 scene1.to("#kltower", { y: 6 * speed, x: 1 * speed }, 0.1);
-scene1.to("#midbuilding2", { y: 4.0 * speed, x: 2.5 * speed }, 0.05);
+scene1.to("#midbuilding", { y: 4.0 * speed, x: 2.5 * speed }, 0.05);
 scene1.to("#h1-7", { y: 5 * speed, x: 1.6 * speed }, 0.05);
-scene1.to("#h1-9", { y: 3.5 * speed, x: -0.2 * speed }, 0.05);
+scene1.to("#backbuild", { y: 3.5 * speed, x: -0.2 * speed }, 0.05);
 scene1.to("#introCircle", { x: -15 * speed, y: -10 * speed, scale: 5 }, 0);
 
 //animate text
 scene1.to("#info", { y: 0 * speed }, 0);
-
-/*   Bird   */
-gsap.fromTo(
-  "#bird",
-  { opacity: 1 },
-  {
-    y: -250,
-    x: 800,
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: ".scrollElement",
-      //   markers: true,
-      start: "15% top",
-      end: "60% 100%",
-      scrub: 4,
-      onEnter: function () {
-        gsap.to("#bird", { scaleX: 1, rotation: 0 });
-      },
-      onLeave: function () {
-        gsap.to("#bird", { scaleX: -1, rotation: -15 });
-      },
-    },
-  }
-);
-
-/* Clouds  */
-let clouds = gsap.timeline();
-ScrollTrigger.create({
-  animation: clouds,
-  trigger: ".scrollElement",
-  start: "top top",
-  end: "70% 100%",
-  scrub: 1,
-});
-
-clouds.to("#cloud1", { x: 500 }, 0);
-clouds.to("#cloud2", { x: 1000 }, 0);
-clouds.to("#cloud3", { x: -1000 }, 0);
-clouds.to("#cloud4", { x: -700, y: 25 }, 0);
 
 /* Sun motion Animation  */
 let sun = gsap.timeline();
@@ -107,40 +68,6 @@ scene2.fromTo("#h2-3", { y: 700 }, { y: 0 }, 0.1);
 scene2.fromTo("#h2-4", { y: 700 }, { y: 0 }, 0.2);
 scene2.fromTo("#h2-5", { y: 800 }, { y: 0 }, 0.3);
 scene2.fromTo("#h2-6", { y: 900 }, { y: 0 }, 0.3);
-
-/* Bats */
-gsap.fromTo(
-  "#bats",
-  { opacity: 1, y: 400, scale: 0 },
-  {
-    y: 120,
-    scale: 0.8,
-    transformOrigin: "50% 50%",
-    ease: "power3.out",
-    scrollTrigger: {
-      trigger: ".scrollElement",
-      start: "40% top",
-      end: "70% 100%",
-      scrub: 3,
-      onEnter: function () {
-        gsap.utils.toArray("#bats path").forEach((item, i) => {
-          gsap.to(item, {
-            scaleX: 0.5,
-            yoyo: true,
-            repeat: 11,
-            duration: 0.15,
-            delay: 0.7 + i / 10,
-            transformOrigin: "50% 50%",
-          });
-        });
-        gsap.set("#bats", { opacity: 1 });
-      },
-      onLeave: function () {
-        gsap.to("#bats", { opacity: 0, delay: 2 });
-      },
-    },
-  }
-);
 
 /* Sun increase */
 let sun2 = gsap.timeline();
@@ -188,42 +115,9 @@ ScrollTrigger.create({
   scrub: 3,
 });
 
-//Hills motion
-scene3.fromTo("#h3-1", { y: 300 }, { y: -550 }, 0);
-scene3.fromTo("#h3-2", { y: 800 }, { y: -550 }, 0.03);
-scene3.fromTo("#h3-3", { y: 600 }, { y: -550 }, 0.06);
-scene3.fromTo("#h3-4", { y: 800 }, { y: -550 }, 0.09);
-scene3.fromTo("#h3-5", { y: 1000 }, { y: -550 }, 0.12);
-
-//stars
-scene3.fromTo("#stars", { opacity: 0 }, { opacity: 0.5, y: -500 }, 0);
-
-// Scroll Back text
-scene3.fromTo("#arrow2", { opacity: 0 }, { opacity: 0.7, y: -710 }, 0.25);
-scene3.fromTo("#text2", { opacity: 0 }, { opacity: 0.7, y: -710 }, 0.3);
-
 //gradient value change
 scene3.to("#bg2-grad", { attr: { cy: 600 } }, 0);
 scene3.to("#bg2-grad", { attr: { r: 500 } }, 0);
-
-/*   falling star   */
-gsap.to("#fstar", {
-  x: -700,
-  y: -250,
-  ease: "power4.out",
-  scrollTrigger: {
-    trigger: ".scrollElement",
-    start: "4000 top",
-    end: "6000 100%",
-    scrub: 5,
-    onEnter: function () {
-      gsap.set("#fstar", { opacity: 1 });
-    },
-    onLeave: function () {
-      gsap.set("#fstar", { opacity: 0 });
-    },
-  },
-});
 
 //reset scrollbar position after refresh
 window.onbeforeunload = function () {

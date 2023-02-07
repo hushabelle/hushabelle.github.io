@@ -28,6 +28,11 @@ header ul li a {
 header ul li a:hover,
 header ul li a.active {
   background-color: white;
+  align-items: center;
+}
+header ul li a.iconlink svg :hover {
+  background-color: white;
+  align-items: center;
 }
 
 body {
@@ -49,6 +54,8 @@ body {
 }
 
 .name h1 {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
   top: 30px;
   position: relative;
   z-index: 12;
@@ -129,7 +136,7 @@ section {
 
 .hidden button {
   cursor: pointer;
-  display: inline;
+  display: flex;
   background-color: #f5f3ef;
   justify-content: center;
   text-align: center;
@@ -149,6 +156,8 @@ section {
 
 form {
   /*where download my is*/
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
   padding-top: 15px;
   font-size: 1.8em;
   color: lightcoral;

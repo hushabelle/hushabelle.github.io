@@ -79,12 +79,21 @@ svg {
 }
 
 .cls-1 {
-  transform: translate(-2px, 55px);
+  transform: translate(-75px) scale(1.2);
   fill: #f5f3ef;
 }
 
 .klccs {
-  transform: translateY(40px);
+  transform: scale(0.9) translate(42px, 80px);
+}
+
+.frontbuilding,
+.midbuilding,
+.backbuild {
+  transform: translateY(30px);
+}
+.kltower {
+  transform: scale(0.95) translate(30px, 60px);
 }
 
 /* aligns all unordered lists to the centre of screen */
@@ -120,7 +129,7 @@ header ul li a.active {
 }
 
 h1 {
-  top: 6%;
+  top: 1%;
   position: relative;
   z-index: 11;
   color: #3a3939;
